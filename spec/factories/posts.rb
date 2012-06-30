@@ -14,5 +14,9 @@ FactoryGirl.define do
     
     factory :post_with_gist, :traits => [:with_gist]
     factory :post_with_tag, :traits => [:with_tag]
+    
+    factory :cn_post do
+      language 'cn'
+    end
   end
 end

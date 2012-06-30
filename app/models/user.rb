@@ -33,13 +33,18 @@ class User < ActiveRecord::Base
     end
   end
   
+  def all_posts
+    Post.where(language: settings.language)
+  end
+  
   def flow
     tag_ids = subscriptions.select(:tag_id).to_sql
     user_ids = followings.select(:followed_user_id).to_sql
     conditions = []
     conditions << "taggings.tag_id in (#{tag_ids})"
     conditions << "posts.user_id in (#{user_ids})"
-    Post.joins(:taggings).where(conditions.join(' or ')).uniq
+    Post.joins(:taggings).where(posts: { language: settings.language }).
+      where(conditions.join(' or ')).uniq
   end
   
   # Bookmarks

@@ -6,7 +6,11 @@ class PostsController < ApplicationController
   before_filter :authenticate!, :except => [:show, :index]
   
   def index
-    @posts = Post.includes(:user).page(params[:page])
+    if user_signed_in?
+      @posts = current_user.all_posts.includes(:user).page(params[:page])
+    else
+      @posts = Post.includes(:user).page(params[:page])
+    end
     render :index
   end
   alias all index

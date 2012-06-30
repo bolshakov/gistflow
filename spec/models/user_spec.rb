@@ -20,16 +20,30 @@ describe User do
   
   describe "#flow" do
     it 'should find post with subscribed tag' do
-      tag = create(:subscription, :user => user).tag
+      tag = create(:subscription, user: user).tag
       post = create(:post); post.tags = [tag]
       subject.flow.should include(post)
     end
     
     it 'should find post by followed user' do
-      followed_user = create(:following, :follower => user).followed_user
-      post = create(:post, :user => followed_user)
+      followed_user = create(:following, follower: user).followed_user
+      post = create(:post, user: followed_user)
       subject.flow.should include(post)
     end
+    
+    it "should use user's locale" do
+      tag = create(:subscription, user: user).tag
+      post = create(:cn_post); post.tags = [tag]
+      subject.flow.should_not include(post)
+    end
+  end
+  
+  describe '#all_posts' do
+    let!(:cn_post) { create(:cn_post) }
+    let!(:post) { create(:post) }
+    
+    its(:all_posts) { should include(post) }
+    its(:all_posts) { should_not include(cn_post) }
   end
   
   describe '#observe?' do

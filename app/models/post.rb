@@ -16,6 +16,7 @@ class Post < ActiveRecord::Base
   validates :preview, length: { minimum: 3, maximum: 500, too_long: 'is too long. Use <cut> tag to separate preview and text.', too_short: 'is too short.' }
   validates :tags_size, numericality: { greater_than: 0 }
   validates :status, length: { maximum: 120 }, if: :status?
+  validates :language, presence: true
   
   attr_accessible :title, :content, :question, :status
   

@@ -19,5 +19,8 @@ section class="settings"
     fieldset
       = f.check_box :receive_notification_emails
       = f.label :receive_notification_emails
+    fieldset
+      | Select locale:
+      = f.select :language, Settings::LANGUAGES
     div class="button-group"
       = f.submit 'Update settings', :class => 'button'

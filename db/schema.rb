@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615132259) do
+ActiveRecord::Schema.define(:version => 20120630110635) do
 
   create_table "account_githubs", :force => true do |t|
     t.string  "token"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20120615132259) do
     t.text     "preview_cache"
     t.datetime "deleted_at"
     t.string   "status"
+    t.string   "language",       :default => "en"
   end
 
   create_table "profiles", :force => true do |t|
@@ -132,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20120615132259) do
     t.datetime "updated_at",                                      :null => false
     t.integer  "user_id"
     t.boolean  "receive_notification_emails", :default => true
+    t.string   "language",                    :default => "en"
   end
 
   add_index "settings", ["user_id"], :name => "index_settings_on_user_id", :unique => true
