@@ -4,7 +4,7 @@ article.post {
   
   header h1 {
     font-size: 16px;
-    line-height: 22px;
+    line-height: 16px;
     padding-bottom: 6px;
     
     span {
@@ -22,9 +22,16 @@ article.post {
       }
     }
   }
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid $gray;
+  padding: 7px 10px 10px;
+  
+  border-top: 1px solid white;
+  border-bottom: 1px solid #ddd;
+  
+  &.preview:hover {
+    background: whiteSmoke;
+    border-top: 1px solid #eee;
+    cursor: pointer;
+  }
   
   &.detail {
     header h1 {

@@ -1,6 +1,8 @@
 @import "configuration";
 section.posts {
+  padding-top: 6px;
   > header {
+    padding: 0 10px;
     h1 {
       @include caption;
     }
