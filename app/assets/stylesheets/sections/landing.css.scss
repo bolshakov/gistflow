@@ -235,36 +235,11 @@ section.landing {
     width: auto;
 
     section.landing {
-      > header {
-        h1 {
-        }
-      }
-
-      div.sign-up {
-        a {
-        }
-      }
-
-      div.description {
-        p {
-          a.more {
-          }
-        }
-      }
-
       section.gistflow {
         position: static;
         float: none;
 
         width: 100%;
-
-        header {
-          h1 {
-          }
-
-          p {
-          }
-        }
 
         div.fork-me {
           left: -10px
@@ -282,25 +257,6 @@ section.landing {
         float: none;
 
         margin: 50px auto;
-      }
-
-      div.more {
-        div.image {
-          img {
-          }
-        }
-
-        div.message {
-        }
-
-        p {
-        }
-
-        h2 {
-        }
-
-        h3 {
-        }
       }
     }
   }
